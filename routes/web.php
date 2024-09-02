@@ -22,6 +22,7 @@ Route::view('forget-password','dashboard.auth.forget-password');
 Route::post('login',[OwnerAuthController::class,'login'])->name('owner.login');
 
 Route::prefix('dashboard')->group(function (){
+    Route::get('logout',[OwnerAuthController::class,'logout'])->name('owner.logout');
     Route::view('home','dashboard.index')->name('owner.dashboard');
 
     // Categories
@@ -32,6 +33,9 @@ Route::prefix('dashboard')->group(function (){
     Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('edit.category');
     Route::put('category/update/{id}',[CategoryController::class,'update'])->name('update.category');
     Route::delete('category/delete/{id}',[CategoryController::class,'destroy'])->name('delete.category');
+    Route::get('category/trashed',[CategoryController::class,'trashed'])->name('trashed.category');
+    Route::delete('category/trashed/force-delete/{id}',[CategoryController::class,'forceDelete'])->name('force.delete.category');
+    Route::put('category/trashed/restore/{id}',[CategoryController::class,'restore'])->name('restore.category');
 
     // Drugs
     Route::get('drugs',[DrugController::class,'index'])->name('all.drugs');
@@ -41,7 +45,8 @@ Route::prefix('dashboard')->group(function (){
     Route::get('drug/edit/{id}',[DrugController::class,'edit'])->name('edit.drug');
     Route::put('drug/update/{id}',[DrugController::class,'update'])->name('update.drug');
     Route::delete('drug/delete/{id}',[DrugController::class,'delete'])->name('delete.drug');
+    Route::get('drug/trashed',[DrugController::class,'trashed'])->name('trashed.drug');
+    Route::delete('drug/trashed/force-delete/{id}',[DrugController::class,'forceDelete'])->name('force.delete.drug');
+    Route::put('drug/trashed/restore/{id}',[DrugController::class,'restore'])->name('restore.drug');
+
 })->middleware('auth:owner');
-
-
-Route::get('logout',[OwnerAuthController::class,'logout'])->name('owner.logout')->middleware('auth:owner');

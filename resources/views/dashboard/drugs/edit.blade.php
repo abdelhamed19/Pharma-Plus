@@ -11,6 +11,8 @@
                             placeholder="الإسم باللغه العربية" />
                         <x-dashboard-form-input name="en_name" value="{{ $drug->en_name }}" label="Name in English" placeholder="Name in English" />
                         <x-dashboard-form-input name="en_description" value="{{ $drug->en_description }}" label="Description" placeholder="Description" />
+                        <x-dashboard-form-input name="stock" value="{{ $drug->stock }}" label="stock" placeholder="stock" />
+                        <x-dashboard-form-input name="price" value="{{ $drug->price }}" label="price" placeholder="price" />
                         <x-dashboard-form-input name="ar_description" value="{{ $drug->ar_description }}" label="الوصف باللغه العربية"
                             placeholder="الوصف باللغه العربية" />
                         <select name="status" class="form-control" id="exampleInputUsername1">

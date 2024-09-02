@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Api\drugs;
 
-use Illuminate\Http\Request;
 use App\Helpers\HTTPResponse;
 use App\Http\Controllers\Controller;
-use App\Models\Drug;
 use App\Repositories\DrugRepository\DrugRepositoryClass;
 
 class DrugsController extends Controller
@@ -18,7 +16,7 @@ class DrugsController extends Controller
     }
     public function allDrugs()
     {
-        $drugs = $this->drugRepositoryClass->allDrugs();
+        $drugs = $this->drugRepositoryClass->allDrugs(5);
         return $this->successRequest($drugs,'All drugs');
     }
     public function drug ($id)

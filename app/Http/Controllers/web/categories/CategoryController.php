@@ -52,4 +52,19 @@ class CategoryController extends Controller
         $this->categoryRepositoryClass->delete($id);
         return redirect()->back()->with('success','Category deleted');
     }
+    public function trashed()
+    {
+        $categories = $this->categoryRepositoryClass->trashed(3);
+        return view('dashboard.categories.trashed',compact('categories'));
+    }
+    public function forceDelete($id)
+    {
+        $category = $this->categoryRepositoryClass->forceDelete($id);
+        return redirect()->route('trashed.category')->with('success','Category deleted successfully');
+    }
+    public function restore($id)
+    {
+        $category = $this->categoryRepositoryClass->restore($id);
+        return redirect()->route('trashed.category')->with('success','Category deleted successfully');
+    }
 }

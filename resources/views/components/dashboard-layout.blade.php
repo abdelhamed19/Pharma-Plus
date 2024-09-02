@@ -66,7 +66,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{ route('all.categories') }}">All Categories</a>
-                        <a class="collapse-item" href="cards.html">Trashed Categories</a>
+                        <a href="{{ route('trashed.category') }}" class="collapse-item" href="cards.html">Trashed Categories</a>
                     </div>
                 </div>
             </li>
@@ -83,7 +83,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Drugs</h6>
                         <a href="{{ route('all.drugs') }}" class="collapse-item" href="utilities-color.html">All Drugs</a>
-                        <a class="collapse-item" href="utilities-border.html">Trashed Drugs</a>
+                        <a href="{{ route('trashed.drug') }}" class="collapse-item" href="utilities-border.html">Trashed Drugs</a>
                         <a class="collapse-item" href="utilities-border.html">Missing Drugs</a>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ namespace App\Repositories\CategoryRepository;
 
 use App\Models\Category;
 use App\Http\Requests\Categories\StoreCategory;
+use App\Models\Drug;
 use Illuminate\Http\Request;
 
 class CategoryRepositoryClass implements CategoryRepositoryInterface
@@ -35,5 +36,22 @@ class CategoryRepositoryClass implements CategoryRepositoryInterface
     {
         return Category::destroy($id);
     }
-
+    public function trashed($qty)
+    {
+        return Category::onlyTrashed()
+        ->with('drugs')
+        ->paginate($qty);
+    }
+    public function forceDelete($id)
+    {
+        return Category::onlyTrashed()
+        ->find($id)
+        ->forceDelete();
+    }
+    public function restore($id)
+    {
+        return Category::onlyTrashed()
+        ->find($id)
+        ->restore();
+    }
 }
