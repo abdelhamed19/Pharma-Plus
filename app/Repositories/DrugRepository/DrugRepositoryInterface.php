@@ -14,5 +14,6 @@ interface DrugRepositoryInterface
     public function trashed ($qty);
     public function forceDelete ($id);
     public function restore($id);
+    public function missing($qty);
 
 }

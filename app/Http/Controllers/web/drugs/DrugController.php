@@ -66,4 +66,9 @@ class DrugController extends Controller
         $drug = $this->drugRepositoryClass->restore($id);
         return redirect()->route('trashed.drug')->with('success','Drug restored successfully');
     }
+    public function missing()
+    {
+        $drugs = $this->drugRepositoryClass->missing(5);
+        return view('dashboard.drugs.missing',compact('drugs'));
+    }
 }

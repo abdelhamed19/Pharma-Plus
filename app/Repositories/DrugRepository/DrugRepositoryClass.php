@@ -77,4 +77,10 @@ class DrugRepositoryClass implements DrugRepositoryInterface
         ->find($id)
         ->restore();
     }
+    public function missing($qty)
+    {
+        $drugs = Drug::where('stock',0)->paginate($qty);
+        return $drugs;
+    }
+
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CartController;
 use App\Http\Controllers\web\categories\CategoryController;
 use App\Http\Controllers\web\owners\OwnerAuthController;
 use Illuminate\Support\Facades\Route;
@@ -48,5 +49,9 @@ Route::prefix('dashboard')->group(function (){
     Route::get('drug/trashed',[DrugController::class,'trashed'])->name('trashed.drug');
     Route::delete('drug/trashed/force-delete/{id}',[DrugController::class,'forceDelete'])->name('force.delete.drug');
     Route::put('drug/trashed/restore/{id}',[DrugController::class,'restore'])->name('restore.drug');
+    Route::get('drug/missing',[DrugController::class,'missing'])->name('missing.drug');
+
+    // Cart
+
 
 })->middleware('auth:owner');

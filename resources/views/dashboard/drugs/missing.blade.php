@@ -40,8 +40,8 @@
                                     <th>Name in English</th>
                                     <th>Category</th>
                                     <th>Status</th>
-                                    <th>Force Delete</th>
-                                    <th>Restore</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,7 +55,7 @@
                                         <td>{{ $drug->status }}</td>
                                         <td>
                                             <div class="btn-circle btn-lg">
-                                                <form action="{{ route('force.delete.drug', $drug->id) }}" method="POST" onsubmit="return confirmDelete()">
+                                                <form action="{{ route('delete.drug', $drug->id) }}" method="POST" onsubmit="return confirmDelete()">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-danger btn-circle">
@@ -65,11 +65,10 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <form class="btn btn-info btn-circle" action="{{ route('restore.drug',$drug->id) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <button type="submit" class="fas fa-edit"></button>
-                                            </form>
+                                            <a href="{{ route('edit.drug',$drug->id) }}"
+                                                class="btn btn-info btn-circle">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
                                     </tr>
                                 @empty
                                     <tr>

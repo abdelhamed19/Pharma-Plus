@@ -84,7 +84,7 @@
                         <h6 class="collapse-header">Drugs</h6>
                         <a href="{{ route('all.drugs') }}" class="collapse-item" href="utilities-color.html">All Drugs</a>
                         <a href="{{ route('trashed.drug') }}" class="collapse-item" href="utilities-border.html">Trashed Drugs</a>
-                        <a class="collapse-item" href="utilities-border.html">Missing Drugs</a>
+                        <a href="{{ route('missing.drug') }}" class="collapse-item" href="utilities-border.html">Missing Drugs</a>
                     </div>
                 </div>
             </li>
